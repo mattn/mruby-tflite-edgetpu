@@ -72,10 +72,11 @@ mrb_tflite_edgetpu_init(mrb_state *mrb, mrb_value self) {
 }
 void
 mrb_mruby_tflite_edgetpu_gem_init(mrb_state* mrb) {
-  struct RClass *_class_tflite_edgetpu;
+  struct RClass *_class_tflite, *_class_tflite_edgetpu;
   ARENA_SAVE;
 
-  _class_tflite_edgetpu = mrb_define_class(mrb, "TfLiteEdgeTPU", mrb->object_class);
+  _class_tflite = mrb_define_module(mrb, "TfLite");
+  _class_tflite_edgetpu = mrb_define_class_under(mrb, _class_tflite, "EdgeTPU", mrb->object_class);
 
   mrb_define_method(mrb, _class_tflite_edgetpu, "initialize", mrb_tflite_edgetpu_init, MRB_ARGS_REQ(1));
   mrb_define_module_function(mrb, _class_tflite_edgetpu, "devices", mrb_tflite_edgetpu_devices, MRB_ARGS_NONE());
