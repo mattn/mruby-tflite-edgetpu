@@ -29,7 +29,7 @@ mrb_tflite_edgetpu_delegate_free(mrb_state *mrb, void *p) {
 }
 
 static const struct mrb_data_type mrb_tflite_edgetpu_delegate_type = {
-  "mrb_tflite_edgetpu_delegate", NULL,
+  "mrb_tflite_edgetpu_delegate", mrb_tflite_edgetpu_delegate_free,
 };
 
 static mrb_value
