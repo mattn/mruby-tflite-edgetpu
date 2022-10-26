@@ -34,7 +34,6 @@ static const struct mrb_data_type mrb_tflite_edgetpu_delegate_type = {
 
 static mrb_value
 mrb_tflite_edgetpu_devices(mrb_state *mrb, mrb_value self) {
-  TfLiteModel* model;
   mrb_value arr;
   int n;
   size_t numDevices = 0;
